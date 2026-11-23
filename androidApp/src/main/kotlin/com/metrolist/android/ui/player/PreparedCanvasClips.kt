@@ -4,10 +4,8 @@ import android.media.MediaCodec
 import android.media.MediaExtractor
 import android.media.MediaFormat
 import android.media.MediaMuxer
-import androidx.core.net.toUri
 import androidx.media3.datasource.DataSource
-import androidx.media3.extractor.DefaultExtractorsFactory
-import androidx.media3.inspector.MediaExtractorCompat
+import android.media.MediaExtractor
 import com.metrolist.shared.api.artwork.YouTubeCanvasClip
 import com.metrolist.shared.api.artwork.youtubeCanvasClips
 import kotlinx.coroutines.currentCoroutineContext
@@ -33,12 +31,12 @@ internal suspend fun prepareCanvasClips(
     cacheKey: String? = null,
 ): PreparedCanvasClips {
     val cancellation = currentCoroutineContext()
-    val extractor = MediaExtractorCompat(DefaultExtractorsFactory(), factory)
+    val extractor = MediaExtractor()
     val output = File.createTempFile("canvas-clips-", ".media", directory)
     var muxer: MediaMuxer? = null
     var keepOutput = false
     try {
-        extractor.setDataSource(uri.toUri(), 0L)
+        extractor.setDataSource(uri)
         val track =
             (0 until extractor.trackCount).first {
                 extractor.getTrackFormat(it).getString(MediaFormat.KEY_MIME)?.startsWith("video/") ==
@@ -72,7 +70,7 @@ internal suspend fun prepareCanvasClips(
             cancellation.ensureActive()
             require(clip.startMs >= 0 && clip.endMs > clip.startMs)
             onSeek(clip.startMs)
-            extractor.seekTo(clip.startMs * 1000, MediaExtractorCompat.SEEK_TO_CLOSEST_SYNC)
+            extractor.seekTo(clip.startMs * 1000, MediaExtractor.SEEK_TO_CLOSEST_SYNC)
             val startUs = extractor.sampleTime
             check(startUs >= 0 && extractor.sampleFlags and MediaExtractor.SAMPLE_FLAG_SYNC != 0) { "Canvas clip has no keyframe" }
             val endUs = startUs + (clip.endMs - clip.startMs) * 1000

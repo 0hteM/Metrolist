@@ -106,7 +106,6 @@ coil = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }
 shimmer = { module = "com.valentinilk.shimmer:compose-shimmer", version.ref = "shimmer" }
 
-media3-inspector = { module = "androidx.media3:media3-inspector", version.ref = "media3" }
 media3-exoplayer = { module = "androidx.media3:media3-exoplayer", version.ref = "media3" }
 media3-decoder = { module = "androidx.media3:media3-decoder", version.ref = "media3" }
 androidx-annotation = { module = "androidx.annotation:annotation", version = "1.11.0" }
