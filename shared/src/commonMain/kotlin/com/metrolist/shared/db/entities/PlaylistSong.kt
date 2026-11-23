@@ -12,8 +12,8 @@ import com.metrolist.shared.model.SongItem
 data class PlaylistSong(
     @Embedded val map: PlaylistSongMap,
     @Relation(
-        parentColumns = ["songId"],
-        entityColumns = ["id"],
+        parentColumn = "songId",
+        entityColumn = "id",
         entity = SongEntity::class,
     )
     val song: Song,

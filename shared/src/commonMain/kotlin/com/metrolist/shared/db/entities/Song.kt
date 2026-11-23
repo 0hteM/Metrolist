@@ -13,36 +13,36 @@ data class Song(
     @Embedded val song: SongEntity,
     @Relation(
         entity = ArtistEntity::class,
-        entityColumns = ["id"],
-        parentColumns = ["id"],
+        entityColumn = "id",
+        parentColumn = "id",
         associateBy =
             Junction(
                 value = SortedSongArtistMap::class,
-                parentColumns = ["songId"],
-                entityColumns = ["artistId"],
+                parentColumn = "songId",
+                entityColumn = "artistId",
             ),
     )
     val artists: List<ArtistEntity>,
     @Relation(
-        parentColumns = ["id"],
-        entityColumns = ["songId"],
+        parentColumn = "id",
+        entityColumn = "songId",
     )
     val artistMaps: List<SongArtistMap> = emptyList(),
     @Relation(
         entity = AlbumEntity::class,
-        entityColumns = ["id"],
-        parentColumns = ["id"],
+        entityColumn = "id",
+        parentColumn = "id",
         associateBy =
             Junction(
                 value = SongAlbumMap::class,
-                parentColumns = ["songId"],
-                entityColumns = ["albumId"],
+                parentColumn = "songId",
+                entityColumn = "albumId",
             ),
     )
     val album: AlbumEntity? = null,
     @Relation(
-        parentColumns = ["id"],
-        entityColumns = ["id"],
+        parentColumn = "id",
+        entityColumn = "id",
     )
     val format: FormatEntity? = null,
 ) : LocalItem() {

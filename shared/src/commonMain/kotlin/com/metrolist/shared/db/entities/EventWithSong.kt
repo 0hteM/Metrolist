@@ -13,10 +13,10 @@ data class EventWithSong(
     val event: Event,
     @Relation(
         entity = SongEntity::class,
-        parentColumns = ["songId"],
-        entityColumns = ["id"],
+        parentColumn = "songId",
+        entityColumn = "id",
     )
     val song: Song,
-    @Relation(parentColumns = ["id"], entityColumns = ["eventId"])
+    @Relation(parentColumn = "id", entityColumn = "eventId")
     val snapshot: HistorySnapshot? = null,
 )

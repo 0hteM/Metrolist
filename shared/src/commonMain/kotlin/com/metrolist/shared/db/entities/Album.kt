@@ -15,13 +15,13 @@ data class Album(
     val album: AlbumEntity,
     @Relation(
         entity = ArtistEntity::class,
-        entityColumns = ["id"],
-        parentColumns = ["id"],
+        entityColumn = "id",
+        parentColumn = "id",
         associateBy =
             Junction(
                 value = AlbumArtistMap::class,
-                parentColumns = ["albumId"],
-                entityColumns = ["artistId"],
+                parentColumn = "albumId",
+                entityColumn = "artistId",
             ),
     )
     val artists: List<ArtistEntity> = emptyList(),
