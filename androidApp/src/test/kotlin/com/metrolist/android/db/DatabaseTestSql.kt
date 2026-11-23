@@ -1,6 +1,6 @@
 package com.metrolist.android.db
 
-import androidx.room3.useWriterConnection
+import androidx.room.useWriterConnection
 import androidx.sqlite.SQLiteConnection
 import androidx.sqlite.SQLiteDriver
 import androidx.sqlite.SQLiteStatement

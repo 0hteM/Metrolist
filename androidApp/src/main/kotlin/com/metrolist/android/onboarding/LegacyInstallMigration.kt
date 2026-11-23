@@ -2,7 +2,7 @@ package com.metrolist.android.onboarding
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import androidx.room3.useReaderConnection
+import androidx.room.useReaderConnection
 import com.metrolist.android.backup.BackupRestoreManager
 import com.metrolist.android.backup.createFrameworkDatabaseSnapshot
 import com.metrolist.shared.backup.BACKUP_DATABASE_ENTRY

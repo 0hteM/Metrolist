@@ -5,8 +5,8 @@
 
 package com.metrolist.shared.db.entities
 
-import androidx.room3.Embedded
-import androidx.room3.Relation
+import androidx.room.Embedded
+import androidx.room.Relation
 import com.metrolist.shared.model.SongItem
 
 data class PlaylistSong(

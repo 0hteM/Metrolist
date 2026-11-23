@@ -5,11 +5,11 @@
 
 package com.metrolist.shared.db
 
-import androidx.room3.ColumnTypeConverters
-import androidx.room3.ConstructedBy
-import androidx.room3.Database
-import androidx.room3.RoomDatabase
-import androidx.room3.RoomDatabaseConstructor
+import androidx.room.TypeConverters
+import androidx.room.ConstructedBy
+import androidx.room.Database
+import androidx.room.RoomDatabase
+import androidx.room.RoomDatabaseConstructor
 import com.metrolist.shared.db.daos.DatabaseDao
 import com.metrolist.shared.db.daos.ImportTrackMatchDao
 import com.metrolist.shared.db.daos.PendingScrobbleDao
@@ -278,7 +278,7 @@ internal val MIGRATION_53_54_SQL =
     version = DATABASE_VERSION,
     exportSchema = true,
 )
-@ColumnTypeConverters(Converters::class)
+@TypeConverters(Converters::class)
 @ConstructedBy(MusicDatabaseConstructor::class)
 abstract class MusicDatabase : RoomDatabase() {
     abstract fun pendingScrobbleDao(): PendingScrobbleDao

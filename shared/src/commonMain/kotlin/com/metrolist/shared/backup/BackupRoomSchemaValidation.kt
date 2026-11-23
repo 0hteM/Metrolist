@@ -1,7 +1,7 @@
 package com.metrolist.shared.backup
 
-import androidx.room3.util.TableInfo
-import androidx.room3.util.ViewInfo
+import androidx.room.util.TableInfo
+import androidx.room.util.ViewInfo
 import androidx.sqlite.SQLiteConnection
 
 internal suspend fun validateBackupRoomSchema(

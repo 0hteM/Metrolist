@@ -1,6 +1,6 @@
 package com.metrolist.shared.db.daos
 
-import androidx.room3.Embedded
+import androidx.room.Embedded
 import com.metrolist.shared.db.entities.Event
 
 data class HistoryRow(

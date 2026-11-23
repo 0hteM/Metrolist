@@ -1,13 +1,13 @@
 package com.metrolist.shared.db.daos
 
-import androidx.room3.Dao
-import androidx.room3.Delete
-import androidx.room3.Insert
-import androidx.room3.OnConflictStrategy
-import androidx.room3.Query
-import androidx.room3.RawQuery
-import androidx.room3.RoomRawQuery
-import androidx.room3.Transaction
+import androidx.room.Dao
+import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.RawQuery
+import androidx.room.RoomRawQuery
+import androidx.room.Transaction
 import com.metrolist.shared.db.HistoryArtistCredit
 import com.metrolist.shared.db.HistoryBucket
 import com.metrolist.shared.db.HistoryCatalogNames

@@ -1,6 +1,6 @@
 package com.metrolist.shared.db.entities
 
-import androidx.room3.Entity
+import androidx.room.Entity
 
 @Entity(tableName = "history_stat_exclusion", primaryKeys = ["kind", "value"])
 data class HistoryStatExclusion(

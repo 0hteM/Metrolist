@@ -5,9 +5,9 @@
 
 package com.metrolist.shared.db.entities
 
-import androidx.room3.Embedded
-import androidx.room3.Junction
-import androidx.room3.Relation
+import androidx.room.Embedded
+import androidx.room.Junction
+import androidx.room.Relation
 
 data class Song(
     @Embedded val song: SongEntity,

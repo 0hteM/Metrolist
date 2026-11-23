@@ -1,7 +1,7 @@
 package com.metrolist.android.onboarding
 
 import android.database.sqlite.SQLiteDatabase
-import androidx.room3.useReaderConnection
+import androidx.room.useReaderConnection
 import com.metrolist.shared.db.DATABASE_VERSION
 import com.metrolist.shared.db.checkAndroidDatabaseVersion
 import com.metrolist.shared.db.getDatabaseBuilder

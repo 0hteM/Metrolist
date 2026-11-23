@@ -1,7 +1,7 @@
 package com.metrolist.shared.playlistimport
 
-import androidx.room3.immediateTransaction
-import androidx.room3.useWriterConnection
+import androidx.room.immediateTransaction
+import androidx.room.useWriterConnection
 import com.metrolist.shared.api.YouTubeRepository
 import com.metrolist.shared.api.playlistSongOccurrences
 import com.metrolist.shared.db.MusicDatabase

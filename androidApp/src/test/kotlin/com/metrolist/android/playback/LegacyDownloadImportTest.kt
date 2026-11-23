@@ -14,7 +14,7 @@ import androidx.media3.exoplayer.offline.DefaultDownloadIndex
 import androidx.media3.exoplayer.offline.Download
 import androidx.media3.exoplayer.offline.DownloadProgress
 import androidx.media3.exoplayer.offline.DownloadRequest
-import androidx.room3.Room
+import androidx.room.Room
 import androidx.sqlite.driver.AndroidSQLiteDriver
 import com.metrolist.android.db.executeTestSql
 import com.metrolist.shared.db.MusicDatabase

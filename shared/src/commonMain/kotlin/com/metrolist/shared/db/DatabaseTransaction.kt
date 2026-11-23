@@ -1,5 +1,9 @@
 package com.metrolist.shared.db
 
-import androidx.room3.withWriteTransaction
+import androidx.room.immediateTransaction
+import androidx.room.useWriterConnection
 
-suspend fun <R> MusicDatabase.withDatabaseTransaction(block: suspend () -> R): R = withWriteTransaction { block() }
+suspend fun <R> MusicDatabase.withDatabaseTransaction(block: suspend () -> R): R =
+    useWriterConnection { transactor ->
+        transactor.immediateTransaction { block() }
+    }

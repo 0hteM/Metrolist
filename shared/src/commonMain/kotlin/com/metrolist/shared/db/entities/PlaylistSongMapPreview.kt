@@ -5,8 +5,8 @@
 
 package com.metrolist.shared.db.entities
 
-import androidx.room3.ColumnInfo
-import androidx.room3.DatabaseView
+import androidx.room.ColumnInfo
+import androidx.room.DatabaseView
 
 @DatabaseView(
     viewName = "playlist_song_map_preview",

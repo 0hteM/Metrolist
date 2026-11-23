@@ -5,7 +5,7 @@
 
 package com.metrolist.shared.db.entities
 
-import androidx.room3.Embedded
+import androidx.room.Embedded
 
 data class Playlist(
     @Embedded

@@ -5,9 +5,9 @@
 
 package com.metrolist.shared.db.entities
 
-import androidx.room3.ColumnInfo
-import androidx.room3.Entity
-import androidx.room3.ForeignKey
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.ForeignKey
 
 @Entity(
     tableName = "song_artist_map",

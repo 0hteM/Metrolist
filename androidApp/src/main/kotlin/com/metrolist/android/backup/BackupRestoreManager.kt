@@ -14,9 +14,9 @@ import android.os.Process
 import android.system.Os
 import androidx.core.database.sqlite.transaction
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
-import androidx.room3.exclusiveTransaction
-import androidx.room3.useReaderConnection
-import androidx.room3.useWriterConnection
+import androidx.room.exclusiveTransaction
+import androidx.room.useReaderConnection
+import androidx.room.useWriterConnection
 import androidx.sqlite.driver.AndroidSQLiteDriver
 import com.metrolist.shared.backup.BACKUP_DATABASE_ENTRY
 import com.metrolist.shared.backup.BACKUP_MANIFEST_ENTRY

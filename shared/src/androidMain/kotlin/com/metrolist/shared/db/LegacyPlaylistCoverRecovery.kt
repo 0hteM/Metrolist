@@ -2,14 +2,14 @@ package com.metrolist.shared.db
 
 import android.content.Context
 import android.util.Log
-import androidx.room3.RoomDatabase
+import androidx.room.RoomDatabase
 import androidx.sqlite.SQLiteConnection
 import java.io.File
 
 internal class LegacyPlaylistCoverRecovery(
     private val context: Context,
 ) : RoomDatabase.Callback() {
-    override suspend fun onOpen(connection: SQLiteConnection) {
+    override fun onOpen(connection: SQLiteConnection) {
         recoverLegacyPlaylistCovers(connection, context.filesDir, context.cacheDir, context.packageName)
     }
 }

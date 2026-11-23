@@ -1,6 +1,6 @@
 package com.metrolist.shared.db
 
-import androidx.room3.RoomDatabase
+import androidx.room.RoomDatabase
 import androidx.sqlite.SQLiteConnection
 import androidx.sqlite.execSQL
 
@@ -13,7 +13,7 @@ internal val PROTECT_LEGACY_LYRICS_SQL =
     """.trimIndent()
 
 internal object LegacyUserLyricsRecovery : RoomDatabase.Callback() {
-    override suspend fun onOpen(connection: SQLiteConnection) {
+    override fun onOpen(connection: SQLiteConnection) {
         connection.recoverLegacyUserLyrics()
     }
 }

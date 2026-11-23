@@ -1,7 +1,7 @@
 package com.metrolist.shared.db.daos
 
-import androidx.room3.Dao
-import androidx.room3.RoomWarnings
+import androidx.room.Dao
+import androidx.room.RoomWarnings
 
 @Dao
 @Suppress(RoomWarnings.QUERY_MISMATCH)

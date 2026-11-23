@@ -1,6 +1,6 @@
 package com.metrolist.shared.db
 
-import androidx.room3.RoomRawQuery
+import androidx.room.RoomRawQuery
 import com.metrolist.shared.api.YouTubeHistoryEntry
 import com.metrolist.shared.api.YouTubeRepository
 import com.metrolist.shared.db.daos.HistoryRow

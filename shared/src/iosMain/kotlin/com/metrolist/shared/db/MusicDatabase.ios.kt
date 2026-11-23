@@ -1,7 +1,7 @@
 package com.metrolist.shared.db
 
-import androidx.room3.Room
-import androidx.room3.RoomDatabase
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import androidx.sqlite.SQLiteConnection
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import androidx.sqlite.driver.bundled.SQLITE_OPEN_READONLY

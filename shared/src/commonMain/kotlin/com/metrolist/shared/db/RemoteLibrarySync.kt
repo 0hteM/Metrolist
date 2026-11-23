@@ -1,7 +1,7 @@
 package com.metrolist.shared.db
 
-import androidx.room3.immediateTransaction
-import androidx.room3.useWriterConnection
+import androidx.room.immediateTransaction
+import androidx.room.useWriterConnection
 import com.metrolist.shared.db.entities.AlbumArtistMap
 import com.metrolist.shared.db.entities.AlbumEntity
 import com.metrolist.shared.db.entities.ArtistEntity

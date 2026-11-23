@@ -1,6 +1,6 @@
 package com.metrolist.android.data
 
-import androidx.room3.useReaderConnection
+import androidx.room.useReaderConnection
 import androidx.sqlite.SQLiteStatement
 import com.metrolist.shared.db.HISTORY_SNAPSHOT_ARTIST_MATCH_SQL
 import com.metrolist.shared.db.HistoryCursor

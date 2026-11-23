@@ -1,8 +1,8 @@
 package com.metrolist.shared.db.daos
 
-import androidx.room3.Dao
-import androidx.room3.Query
-import androidx.room3.Upsert
+import androidx.room.Dao
+import androidx.room.Query
+import androidx.room.Upsert
 import com.metrolist.shared.db.entities.ImportTrackMatch
 
 @Dao

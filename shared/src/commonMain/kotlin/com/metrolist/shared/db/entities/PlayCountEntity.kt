@@ -5,7 +5,7 @@
 
 package com.metrolist.shared.db.entities
 
-import androidx.room3.Entity
+import androidx.room.Entity
 
 @Entity(
     tableName = "playCount",

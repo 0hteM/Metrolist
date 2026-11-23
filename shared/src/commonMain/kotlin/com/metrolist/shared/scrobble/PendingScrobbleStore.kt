@@ -1,7 +1,7 @@
 package com.metrolist.shared.scrobble
 
-import androidx.room3.Entity
-import androidx.room3.PrimaryKey
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.metrolist.shared.db.MusicDatabase
 import com.metrolist.shared.db.daos.PendingScrobbleDao
 import com.metrolist.shared.settings.Settings

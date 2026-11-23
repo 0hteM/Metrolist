@@ -1,7 +1,7 @@
 package com.metrolist.shared.db
 
-import androidx.room3.Room
-import androidx.room3.RoomDatabase
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import androidx.sqlite.SQLiteConnection
 import androidx.sqlite.execSQL
 import com.metrolist.shared.utils.XdgUtils
@@ -24,7 +24,7 @@ internal fun getDesktopDatabaseBuilder(dbFile: File): RoomDatabase.Builder<Music
         .addCallback(LegacyUserLyricsRecovery)
         .addCallback(
             object : RoomDatabase.Callback() {
-                override suspend fun onOpen(connection: SQLiteConnection) {
+                override fun onOpen(connection: SQLiteConnection) {
                     connection.execSQL(
                         """
                         UPDATE song SET totalPlayTime = measured.total

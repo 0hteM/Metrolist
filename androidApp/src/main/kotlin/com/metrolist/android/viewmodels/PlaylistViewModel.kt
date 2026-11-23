@@ -7,8 +7,8 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.runtime.snapshots.Snapshot
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.room3.immediateTransaction
-import androidx.room3.useWriterConnection
+import androidx.room.immediateTransaction
+import androidx.room.useWriterConnection
 import com.metrolist.shared.api.PlaylistNotFoundException
 import com.metrolist.shared.api.PlaylistPage
 import com.metrolist.shared.api.PlaylistSongAlreadyPresentException

@@ -7,8 +7,8 @@ package com.metrolist.shared.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
-import androidx.room3.Room
-import androidx.room3.RoomDatabase
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import androidx.sqlite.driver.AndroidSQLiteDriver
 import kotlinx.coroutines.Dispatchers
 

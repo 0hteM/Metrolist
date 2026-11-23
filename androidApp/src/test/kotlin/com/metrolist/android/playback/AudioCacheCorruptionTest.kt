@@ -2,7 +2,7 @@ package com.metrolist.android.playback
 
 import androidx.media3.common.ParserException
 import androidx.media3.common.PlaybackException
-import androidx.room3.Room
+import androidx.room.Room
 import androidx.sqlite.driver.AndroidSQLiteDriver
 import com.metrolist.shared.db.MusicDatabase
 import com.metrolist.shared.db.entities.CachedAudioEntity

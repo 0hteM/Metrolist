@@ -5,7 +5,7 @@
 
 package com.metrolist.shared.db
 
-import androidx.room3.ColumnTypeConverter
+import androidx.room.TypeConverter
 import com.metrolist.shared.model.AlbumItem
 import com.metrolist.shared.model.PlaylistItem
 import kotlinx.datetime.LocalDateTime
@@ -18,24 +18,24 @@ import kotlin.time.Instant
 class Converters {
     private val playlistJson = Json { ignoreUnknownKeys = true }
 
-    @ColumnTypeConverter
+    @TypeConverter
     fun playlistHeaderToJson(header: PlaylistItem?): String? = header?.let { playlistJson.encodeToString(it) }
 
-    @ColumnTypeConverter
+    @TypeConverter
     fun playlistHeaderFromJson(value: String?): PlaylistItem? = value?.let { playlistJson.decodeFromString<PlaylistItem>(it) }
 
-    @ColumnTypeConverter
+    @TypeConverter
     fun albumListToJson(albums: List<AlbumItem>?): String? = albums?.let { playlistJson.encodeToString(it) }
 
-    @ColumnTypeConverter
+    @TypeConverter
     fun albumListFromJson(value: String?): List<AlbumItem>? = value?.let { playlistJson.decodeFromString<List<AlbumItem>>(it) }
 
-    @ColumnTypeConverter
+    @TypeConverter
     fun fromTimestamp(value: Long?): LocalDateTime? =
         value?.let {
             Instant.fromEpochMilliseconds(it).toLocalDateTime(TimeZone.UTC)
         }
 
-    @ColumnTypeConverter
+    @TypeConverter
     fun dateToTimestamp(date: LocalDateTime?): Long? = date?.toInstant(TimeZone.UTC)?.toEpochMilliseconds()
 }

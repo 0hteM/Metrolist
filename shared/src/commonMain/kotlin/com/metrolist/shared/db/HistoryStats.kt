@@ -1,7 +1,7 @@
 package com.metrolist.shared.db
 
-import androidx.room3.RoomRawQuery
-import androidx.room3.useWriterConnection
+import androidx.room.RoomRawQuery
+import androidx.room.useWriterConnection
 import com.metrolist.shared.api.isAlbumBrowseId
 import com.metrolist.shared.api.lastfm.LastFmListen
 import com.metrolist.shared.db.entities.HistoryStatExclusion
