@@ -30,7 +30,6 @@ import androidx.media3.exoplayer.audio.AudioSink;
 import androidx.media3.exoplayer.audio.AudioSink.SinkFormatSupport;
 import androidx.media3.exoplayer.audio.DecoderAudioRenderer;
 import androidx.media3.extractor.VorbisUtil;
-import com.google.common.primitives.ImmutableIntArray;
 
 /** Decodes and renders audio using the native Opus decoder. */
 @UnstableApi
@@ -133,7 +132,7 @@ public class LibopusAudioRenderer extends DecoderAudioRenderer<OpusDecoder> {
 
   @Nullable
   @Override
-  protected ImmutableIntArray getChannelMapping(OpusDecoder decoder) {
+  protected int[] getChannelMapping(OpusDecoder decoder) {
     return VorbisUtil.getVorbisToAndroidChannelLayoutMapping(decoder.channelCount);
   }
 }

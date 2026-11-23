@@ -156,6 +156,8 @@ dependencies {
     implementation(libs.media3.exoplayer)
     api(libs.media3.decoder)
     implementation(libs.androidx.annotation)
+    // Available at compile time for the vendored Media3 package-info.java.
+    compileOnly("org.jspecify:jspecify:1.0.0")
     // AndroidX annotations reference MigrationStatus in their class-file metadata.
     compileOnly(libs.kotlin.annotations.jvm)
     testImplementation(libs.junit4)
