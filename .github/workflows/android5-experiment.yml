@@ -30,7 +30,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Set up Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Static Android 5 compatibility preflight
         run: python3 scripts/android5_preflight.py | tee android5-preflight.txt
