@@ -45,6 +45,13 @@ jobs:
             --no-daemon --stacktrace --warning-mode=all \
             2>&1 | tee android5-build.log
 
+      - name: Summarize Android 5 compatibility failure
+        if: always()
+        shell: bash
+        run: |
+          python3 scripts/android5_analyze_log.py android5-build.log android5-summary.md
+          cat android5-summary.md >> "$GITHUB_STEP_SUMMARY"
+
       - name: Upload compatibility diagnostics (also on failure)
         if: always()
         uses: actions/upload-artifact@v4
@@ -53,6 +60,7 @@ jobs:
           path: |
             android5-preflight.txt
             android5-build.log
+            android5-summary.md
           if-no-files-found: warn
 
       - name: Upload debug APK only if compilation succeeds

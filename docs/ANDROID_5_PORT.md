@@ -20,7 +20,9 @@ An APK from a successful initial build would still need real-device tests.
 1. Put these changed files in your fork (or apply the included Git patch in Codespaces).
 2. Open **Actions → Android 5 compatibility experiment → Run workflow**.
 3. Open the workflow run's **Artifacts** and download `metro-android5-diagnostics`.
-4. Read `android5-build.log` for errors. If an APK somehow builds, it appears as
+4. Start with `android5-summary.md`, which lists failed tasks, SDK conflicts
+   and the most relevant Gradle excerpt. Use `android5-build.log` for full details.
+   If an APK eventually builds, it appears as
    `metro-android5-debug-UNVERIFIED`; do not assume it works on Android 5.
 
 The default **Build Android** workflow remains unchanged.
@@ -56,3 +58,32 @@ References:
 Run the workflow and fix the *first actual error* rather than overriding minimum
 SDK checks or silently ignoring manifest-merge failures. Many changes are expected;
 this is a multi-stage port, not a one-line backport.
+
+## Current source snapshot (November 2026)
+
+This checkout **already contains** the Android 5 experiment, the Android SDK
+setup action v4, and the following dependency experiments:
+
+- `androidx.browser:browser` 1.9.0 (previously 1.10.0).
+- Koin 4.1.1 (previously 4.3.0-Beta1).
+
+These versions were lowered for compatibility investigations; they do **not**
+prove a successful compile or playback. Upstream defaults are still affected by
+these two version-catalog changes, so test normal builds too.
+
+### Scope of remaining port work
+
+The repository still uses Media3 1.12.0-beta01, Navigation 3 1.3.0-alpha04,
+Compose 1.13.0-rc01 and Room 3.0.3. Several contemporary AndroidX components
+require API 23+. Legacy versions are **not** necessarily drop-in replacements,
+because app code may use their newer APIs. Media3 Inspector, for example, did
+not exist in older API-21-era Media3 versions.
+
+Prefer investigating an older architectural baseline / smaller independent
+legacy client if the dependency graph remains incompatible. Do **not** present
+a successful `assembleDebug` as proof of Android 5 runtime compatibility.
+
+Official AndroidX references:
+- https://developer.android.com/jetpack/androidx/releases/media3
+- https://developer.android.com/jetpack/androidx/releases/navigation3
+- https://developer.android.com/jetpack/androidx/versions

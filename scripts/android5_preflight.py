@@ -32,3 +32,19 @@ for name, label in [
     print(f"[review] {name} {versions.get(name, 'unknown')}: {label}")
 print("\nWARNING: Passing minSdk=21 to Gradle does not mean this APK can build or run.")
 print("Never suppress manifest minSdk errors using tools:overrideLibrary without replacing incompatible APIs.")
+
+# Report source-level migration surface, instead of claiming version changes alone
+# produce an API-21-compatible APK.
+source_roots = [ROOT / "androidApp/src", ROOT / "shared/src"]
+for label, needle in [
+    ("Compose UI", "import androidx.compose"),
+    ("Media3", "import androidx.media3"),
+    ("Navigation 3", "import androidx.navigation3"),
+    ("Room 3", "androidx.room3"),
+]:
+    count = sum(
+        needle in path.read_text(encoding="utf-8", errors="replace")
+        for root in source_roots if root.exists()
+        for path in root.rglob("*.kt")
+    )
+    print(f"[migration scope] {label}: {count} Kotlin file(s) reference it")
