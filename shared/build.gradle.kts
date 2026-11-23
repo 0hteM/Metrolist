@@ -282,7 +282,8 @@ kotlin {
         compileSdk {
             version = release(37) { minorApiLevel = 1 }
         }
-        minSdk = 24
+        // Match the app's experimental API 21 variant; default remains API 24.
+        minSdk = if (providers.gradleProperty("android5Experiment").orNull == "true") 21 else 24
         androidResources.enable = true
         lint { ignoreTestSources = true }
         withHostTest {}

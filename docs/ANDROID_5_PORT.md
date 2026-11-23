@@ -1,0 +1,58 @@
+# MetroList Android 5.0 / Xperia M4 Aqua E2303 — experiment, not a release
+
+Target: **Android 5.0 / API 21**, **arm64-v8a** (E2303). The supplied MetroList snapshot
+normally targets API 24 and uses recent AndroidX and Media3 dependencies.
+
+## What this starter patch does
+
+- Adds the **opt-in** Gradle property `android5Experiment=true` to keep `androidApp`,
+  `shared` and the `opusDecoder` JNI minimum APIs in sync at 21.
+- **Preserves upstream's API 24 default** when this property is absent.
+- Adds a separate, manually-triggered GitHub Actions probe. It attempts a debug APK
+  and saves a full Gradle log even if compilation fails.
+- Includes a static dependency preflight report.
+
+It does **not** fix the incompatible libraries or deliver a working Android 5 APK.
+An APK from a successful initial build would still need real-device tests.
+
+## Run without Android Studio (from your GitHub fork)
+
+1. Put these changed files in your fork (or apply the included Git patch in Codespaces).
+2. Open **Actions → Android 5 compatibility experiment → Run workflow**.
+3. Open the workflow run's **Artifacts** and download `metro-android5-diagnostics`.
+4. Read `android5-build.log` for errors. If an APK somehow builds, it appears as
+   `metro-android5-debug-UNVERIFIED`; do not assume it works on Android 5.
+
+The default **Build Android** workflow remains unchanged.
+
+## Compatibility work still required
+
+- Media3 1.12.x: modern Media3 raised its Android minimum to API 23; replace or
+  port the playback layer to an API-21-capable library, then retest playback.
+- Navigation 3 1.3.x: Navigation 3 targets API 23+. Rework navigation for API 21.
+- Current Compose artifacts: AndroidX moved major Compose pieces from API 21 to
+  API 23. Find compatible older versions, with coordinated source changes.
+- Review **every** remaining AndroidX, Room 3, native/JNI, networking and
+  security component for API-level compatibility and runtime behavior.
+- Inspect newer Android API calls and provide guarded alternatives. Preserve
+  search, playback, background playback and network error handling first.
+- Check the merged manifest and test real playback and media controls on E2303.
+
+References:
+- https://developer.android.com/jetpack/androidx/releases/media3
+- https://developer.android.com/guide/navigation/navigation-3/migration-guide
+- https://developer.android.com/jetpack/androidx/versions
+
+## Keep your phone and accounts safe
+
+- This is an **app build** experiment. No bootloader unlocking or root is needed.
+- Use only the debug APK from your own trusted fork; don't sideload arbitrary patched builds.
+- Android 5.0 has unpatched OS security vulnerabilities; avoid sensitive logins.
+- If the app is already installed under the same package ID but another signature,
+  do not uninstall until you have backed up its local data (Android may wipe that data).
+
+## Iterating
+
+Run the workflow and fix the *first actual error* rather than overriding minimum
+SDK checks or silently ignoring manifest-merge failures. Many changes are expected;
+this is a multi-stage port, not a one-line backport.

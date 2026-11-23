@@ -262,7 +262,10 @@ android {
 
     defaultConfig {
         applicationId = "com.metrolist.music"
-        minSdk = 24
+        // Experimental Android 5.0 (API 21) port switch.
+        // IMPORTANT: changing minSdk alone does NOT make dependencies compatible.
+        // Leave the normal app at API 24 unless -Pandroid5Experiment=true is passed.
+        minSdk = if (providers.gradleProperty("android5Experiment").orNull == "true") 21 else 24
         targetSdk = 37
         versionCode = 155
         versionName = appVersion

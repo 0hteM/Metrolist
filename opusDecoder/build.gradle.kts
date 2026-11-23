@@ -20,7 +20,8 @@ android {
     }
 
     defaultConfig {
-        minSdk = 24
+        // The experimental API 21 build must use consistent minSdk settings in all modules.
+        minSdk = if (providers.gradleProperty("android5Experiment").orNull == "true") 21 else 24
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -139,7 +140,7 @@ val buildOpusJni =
         ndkVersion.set(opusNdkVersion)
         cmakeVersion.set(opusCmakeVersion)
         abis.set(opusAbis)
-        minSdk.set(24)
+        minSdk.set(if (providers.gradleProperty("android5Experiment").orNull == "true") 21 else 24)
         sdkDirectory.set(androidComponents.sdkComponents.sdkDirectory)
         workDirectory.set(layout.buildDirectory.dir("opus-cmake"))
         outputDirectory.set(layout.buildDirectory.dir("opus-jniLibs"))
